@@ -732,8 +732,8 @@ void lcdkit_lp2hs_mipi_test(void* pdata)
     struct lcdkit_dsi_read_compare_data g_lp2hs_mipi_check_data =
     {
         .read_value = lp2hs_mipi_check_read_value,
-        .expected_value = lcdkit_info.panel_infos.lp2hs_mipi_check_expected_value,
-        .read_mask = lcdkit_info.panel_infos.lp2hs_mipi_check_read_mask,
+        .expected_value = (uint32_t *)lcdkit_info.panel_infos.lp2hs_mipi_check_expected_value,
+        .read_mask = (uint32_t *)lcdkit_info.panel_infos.lp2hs_mipi_check_read_mask,
         .reg_name = "power mode",
         .log_on = 1,
         .cmds = &lcdkit_info.panel_infos.lp2hs_mipi_check_read_cmds,

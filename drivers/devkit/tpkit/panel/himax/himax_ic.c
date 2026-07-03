@@ -2567,7 +2567,7 @@ static int __init early_parse_himax_panel_name_cmdline(char *p)
 	return 0;
 }
 early_param("mdss_mdp.panel", early_parse_himax_panel_name_cmdline);
-static int himax_init_chip()
+static int himax_init_chip(void)
 {
 	if (g_himax_ts_data->support_get_tp_color == 1) {
 		/* Get tp_color */

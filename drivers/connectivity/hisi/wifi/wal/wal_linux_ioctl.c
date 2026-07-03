@@ -13770,7 +13770,7 @@ oal_int32 wal_add_ip_filter_items(wal_hw_wifi_filter_item *pst_items, oal_int32 
 
 }
 
-oal_int32 wal_clear_ip_filter()
+oal_int32 wal_clear_ip_filter(void)
 {
     oal_uint16   us_len;
     oal_int32    l_ret;
@@ -13880,7 +13880,7 @@ oal_int32 wal_register_ip_filter(wal_hw_wlan_filter_ops *pst_ip_filter_ops)
     return OAL_SUCC;
 }
 
-oal_int32 wal_unregister_ip_filter()
+oal_int32 wal_unregister_ip_filter(void)
 {
 #ifdef CONFIG_DOZE_FILTER
     hw_unregister_wlan_filter();

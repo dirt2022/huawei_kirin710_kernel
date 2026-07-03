@@ -136,7 +136,7 @@ void lcdkit_off_cmd(void* pdata, struct lcdkit_dsi_panel_cmds* cmds)
 /***********************************************************
   *function: this function is used to get the lcdkit_panel_data struct.
 */
-struct lcdkit_panel_data* lcdkit_get_panel_info()
+struct lcdkit_panel_data* lcdkit_get_panel_info(void)
 {
     return &lcdkit_info;
 }

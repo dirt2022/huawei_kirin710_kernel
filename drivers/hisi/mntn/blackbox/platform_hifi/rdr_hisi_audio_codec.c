@@ -103,7 +103,7 @@ static void rdr_audio_set_codec_err_times(unsigned char times)
 	return;
 }
 
-void rdr_audio_clear_reboot_times()
+void rdr_audio_clear_reboot_times(void)
 {
 	if (rdr_audio_get_codec_err_times() > 0) {
 		BB_PRINT_PN("have rebooted before, clear count\n");
@@ -111,7 +111,7 @@ void rdr_audio_clear_reboot_times()
 	}
 }
 
-void rdr_audio_codec_err_process()
+void rdr_audio_codec_err_process(void)
 {
 	unsigned char err_times;
 

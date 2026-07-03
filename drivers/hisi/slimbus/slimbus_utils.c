@@ -82,7 +82,7 @@ static unsigned int get_clk_asp_div(uint64_t target_freq)
 	return param;
 }
 
-void slimbus_freq_request()
+void slimbus_freq_request(void)
 {
 	unsigned int div_siobclk = get_clk_asp_div(SLIMBUS_CLK_24576);
 
@@ -101,7 +101,7 @@ void slimbus_freq_request()
 	mutex_unlock(&slimbus_freq_mutex);
 }
 
-void slimbus_freq_release()
+void slimbus_freq_release(void)
 {
 	unsigned int div_siobclk = get_clk_asp_div(SLIMBUS_CLK_21777);
 

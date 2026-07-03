@@ -492,7 +492,7 @@ static int rdr_main_thread_body(void *arg)
 }
 
 static bool init_done;		/* default value is false */
-bool rdr_init_done()
+bool rdr_init_done(void)
 {
 	if (init_done)
 		return init_done;

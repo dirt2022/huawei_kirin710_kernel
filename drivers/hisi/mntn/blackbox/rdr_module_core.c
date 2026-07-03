@@ -24,7 +24,7 @@ static LIST_HEAD(__rdr_module_ops_list);
 static DEFINE_SPINLOCK(__rdr_module_ops_list_lock);
 static u64 g_s_cur_regcore;
 
-u64 rdr_get_cur_regcore()
+u64 rdr_get_cur_regcore(void)
 {
 	return g_s_cur_regcore;
 }

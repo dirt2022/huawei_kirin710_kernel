@@ -103,7 +103,7 @@ int hi64xx_vad_init(struct snd_soc_codec *codec, struct hi64xx_irq *irq)
 }
 EXPORT_SYMBOL(hi64xx_vad_init);
 
-int hi64xx_vad_deinit()
+int hi64xx_vad_deinit(void)
 {
 	if (!vad_data)
 		return -EINVAL;

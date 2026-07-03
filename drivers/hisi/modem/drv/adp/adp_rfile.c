@@ -110,7 +110,7 @@ typedef struct
 unsigned long g_err = RFILE_INVALID_ERROR_NO;
 
 
-unsigned long mdrv_file_get_errno()
+unsigned long mdrv_file_get_errno(void)
 {
     if(RFILE_INVALID_ERROR_NO == g_err)
     {
@@ -502,7 +502,7 @@ struct rfile_adp_ctrl
 
 struct rfile_adp_ctrl g_adp_rfile;
 
-void adp_rfile_init()
+void adp_rfile_init(void)
 {
     INIT_LIST_HEAD(&g_adp_rfile.rfile_listhead);
 

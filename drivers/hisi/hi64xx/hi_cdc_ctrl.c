@@ -278,7 +278,7 @@ int hi_cdcctrl_enable_clk(struct hi_cdc_ctrl *cdc_ctrl,
 }
 EXPORT_SYMBOL(hi_cdcctrl_enable_clk);
 
-unsigned int hi_cdcctrl_get_pmu_mclk_status()
+unsigned int hi_cdcctrl_get_pmu_mclk_status(void)
 {
 	if (!cdc_ctrl_priv) {
 		pr_err("[%s:%d] cdc ctrl priv is null\n", __FUNCTION__, __LINE__);

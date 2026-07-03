@@ -373,7 +373,7 @@ unsigned int mdrv_nv_restore_result(void)
 * 修改记录  : Yangzhi create
 *
 *****************************************************************************/
-unsigned int mdrv_nv_restore()
+unsigned int mdrv_nv_restore(void)
 {
     return 0;
 }
@@ -409,7 +409,7 @@ unsigned int mdrv_nv_flush(void)
 * 修改记录  : Yangzhi create
 *
 *****************************************************************************/
-unsigned int mdrv_nv_backup()
+unsigned int mdrv_nv_backup(void)
 {
     return bsp_nvm_backup(NV_FLAG_NEED_CRC) & NV_RESULT_CODE;
 }
@@ -427,12 +427,12 @@ unsigned int mdrv_nv_backup()
 * 修改记录  :
 *
 *****************************************************************************/
-unsigned int mdrv_nv_backup_factorynv()
+unsigned int mdrv_nv_backup_factorynv(void)
 {
     return bsp_nvm_update_default();
 }
 
-unsigned int mdrv_nv_revert_factorynv()
+unsigned int mdrv_nv_revert_factorynv(void)
 {
     return bsp_nvm_revert_default();
 }

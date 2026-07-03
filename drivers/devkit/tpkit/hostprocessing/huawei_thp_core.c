@@ -406,7 +406,7 @@ int is_valid_project_id(char *id)
 
 
 #define GET_HWLOCK_FAIL   0
-int thp_bus_lock() {
+int thp_bus_lock(void) {
 	int ret = 0;
 	unsigned long time = 0;
 	unsigned long timeout = 0;
@@ -434,7 +434,7 @@ int thp_bus_lock() {
 	return 0;
 }
 
-void thp_bus_unlock() {
+void thp_bus_unlock(void) {
 	struct thp_core_data *cd = thp_get_core_data();
 	struct hwspinlock *hwlock = cd->hwspin_lock;
 

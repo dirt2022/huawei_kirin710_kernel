@@ -80,7 +80,7 @@ EXPORT_SYMBOL(DRV_SOCP_SHOW_DEBUG_INFO);
 *
 * 返 回 值  : 初始化成功的标识码
 *****************************************************************************/
-int DRV_SOCP_INIT()
+int DRV_SOCP_INIT(void)
 {
     return socp_init();
 }
@@ -429,7 +429,7 @@ EXPORT_SYMBOL(DRV_SOCP_READ_DATA_DONE);
 * 返 回 值  : SOCP_IDLE    空闲
 *             SOCP_BUSY    忙碌
 *****************************************************************************/
-SOCP_STATE_ENUM_UINT32 DRV_SOCP_GET_STATE()
+SOCP_STATE_ENUM_UINT32 DRV_SOCP_GET_STATE(void)
 {
     return bsp_socp_get_state();
 }
