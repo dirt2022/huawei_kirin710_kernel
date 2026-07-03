@@ -1180,7 +1180,7 @@ static unsigned ext4_max_namelen(struct inode *inode)
 
 static const struct fscrypt_operations ext4_cryptops = {
 	.key_prefix		= "ext4:",
-	.get_context		= ext4_get_context,
+	.get_context		= (void *)ext4_get_context,
 	.set_context		= ext4_set_context,
 	.dummy_context		= ext4_dummy_context,
 	.is_encrypted		= ext4_encrypted_inode,
