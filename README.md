@@ -1,47 +1,47 @@
 # What's this?
 Custom Kernel for kirin710
+Currently tested on JDN2-AL50
 
-# how to use it?
-You need an arm64 device running debian sid (raspberry is nice) 
+# related quirks of tested device
+When using GSI, wifi connection is unstable.
 
-also,you can chooice an android phone which rooted and that it have a chroot debian (sid)
-in debian shell:
+# how to build an available kernel.img?
 ```shell
-apt install device-tree-compiler build-essential clang bc git -y
-git clone https://github.com/dirt2022/huawei_kirin710_kernel
-cd huawei_kirin710_kernel
-make merge_kirin710_defconfig
-make -j$(nproc)
+ apt install device-tree-compiler build-essential clang bc git -y
+ git clone https://github.com/dirt2022/huawei_kirin710_kernel
+ cd huawei_kirin710_kernel
+ make merge_kirin710_defconfig
+ make -j$(nproc)
 ```
 
-you will get an Image.gz 
-<and some "ko" files (won't use these)>
+Use magiskboot to unpack KERNEL.IMG from your device's OTA package (update.app)
 
-use AIK-Linux : unpack KERNEL.IMG in your device's OTA package (update.app)
-
- run this:
  
  ```shell
- cp Image.gz ./split-img/KERNEL.img-kernel
- ./repackimg.sh
+ mkdir temp
+ cd temp
+ magiskboot unpack path_to_kernel.img
+ cp arch/arm64/boot/Image.gz ./kernel
+ magiskboot repack path_to_kernel.img output.img
 ```
 
-# attention
-the kernel version is 4.9.148
+# Pay attention
+The kernel version is 4.9.148
 ```markdown
-Selinux is always Permissive,(if you need an secure device,run : make menuconfig , and disable selinux_develop)
+selinux is always Permissive,(if you need security, make menuconfig , and disable selinux_develop)
 
-(if the option enabled,default for permissive and can't switch to enforcing mode)
+(if the option is enabled,selinux would be always permissive and unable to return enforcing mode)
 
-without KernelSU (you need to flash magisk patched recovery_ramdisk to get root)
+no KernelSU included (you need to flash magisk patched recovery_ramdisk to get root access)
 ```
 # how to flash it?
-you need an firmware lower than 9.1.0.126
-if you can find it but dc-phoneix says the file is not suitable for flash :
+You need an firmware lower than 9.1.0.126
+If you can find it but dc-phoneix says the file is not suitable for flash :
+Please see this : https://wuyou.net/forum.php?mod=viewthread&tid=436686
 
-please see this : http://wuyou.net/forum.php?mod=viewthread&tid=436686&extra= (simple chinese)
-
-fastboot flash kernel image-new.img
+```shell
+ fastboot flash kernel output.img
+```
 
 # thanks
 [https://github.com/](https://github.com/Abdelhay-Ali/android_kernel_huawei_kirin710_KernelSU)https://github.com/Abdelhay-Ali/android_kernel_huawei_kirin710_KernelSU
