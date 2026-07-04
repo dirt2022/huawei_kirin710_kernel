@@ -2114,7 +2114,7 @@ static inline void dwc3_event_work_clr_sync(struct hisi_dwc3_device *hisi_dwc)
 
 static DEFINE_MUTEX(sync_event_lock);
 
-int hisi_usb_otg_use_hifi_ip_first()
+int hisi_usb_otg_use_hifi_ip_first(void)
 {
 	struct hisi_dwc3_device *hisi_dwc3 = hisi_dwc3_dev;
 
@@ -2133,7 +2133,7 @@ int hisi_usb_otg_use_hifi_ip_first()
 }
 EXPORT_SYMBOL_GPL(hisi_usb_otg_use_hifi_ip_first);
 
-int hisi_usb_otg_get_typec_orien()
+int hisi_usb_otg_get_typec_orien(void)
 {
 	struct hisi_dwc3_device *hisi_dwc3 = hisi_dwc3_dev;
 

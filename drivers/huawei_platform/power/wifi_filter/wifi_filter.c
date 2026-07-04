@@ -206,7 +206,7 @@ int hw_register_wlan_filter(struct hw_wlan_filter_ops *ops)
 }
 EXPORT_SYMBOL(hw_register_wlan_filter);
 
-int hw_unregister_wlan_filter()
+int hw_unregister_wlan_filter(void)
 {
     gWlanFilterOps.add_filter_items     = NULL;
     gWlanFilterOps.clear_filters        = NULL;

@@ -26,7 +26,7 @@ HI_VOID VENC_HAL_DisableAllInt(S_HEVC_AVC_REGS_TYPE *pVeduReg)
     pVeduReg->VEDU_VCPI_INTMASK.u32 = 0;
 }
 
-HI_S32 VENC_HAL_ResetReg()
+HI_S32 VENC_HAL_ResetReg(void)
 {
     HI_S32 s32Ret = HI_FAILURE;
     g_vencSmmuSetFlag = HI_FALSE;

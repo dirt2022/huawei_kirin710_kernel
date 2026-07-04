@@ -293,7 +293,7 @@ static ssize_t cgroup_info_read_and_save(struct cgroup_info_node *n, const char 
 		ret = -ENOMEM;
 		goto out;
 	}
-	file = file_open(fullname, O_RDONLY, NULL);
+	file = file_open(fullname, O_RDONLY, 0);
 	if (!file) {
 		ret = -ENOENT;
 		goto out;
@@ -387,7 +387,7 @@ static int cgroup_info_get(void)
 		}
 		strcpy(path_buf, FREEZER_PATH);
 		INIT_LIST_HEAD(&cgroup_info_queue);
-		file = file_open(path_buf, O_RDONLY, NULL);
+		file = file_open(path_buf, O_RDONLY, 0);
 		if (!file) {
 			ret = -ENOENT;
 			goto out;
@@ -397,7 +397,7 @@ static int cgroup_info_get(void)
 				node = list_first_entry(&cgroup_info_queue, struct cgroup_info_node, queue_list);
 				strcpy(path_buf, node->path);
 				file_close(file);
-				file = file_open(path_buf, O_RDONLY, NULL);
+				file = file_open(path_buf, O_RDONLY, 0);
 				if (!file) {
 					ret = -ENOENT;
 					goto out;

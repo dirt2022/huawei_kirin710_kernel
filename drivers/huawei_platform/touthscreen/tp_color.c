@@ -125,7 +125,7 @@ int tp_color_provider(void)
 }
 
 EXPORT_SYMBOL(tp_color_provider);
-static int read_tp_color_from_nv()
+static int read_tp_color_from_nv(void)
 {
 	int ret = 0;
 	struct hisi_nve_info_user user_info;

@@ -642,7 +642,8 @@ int verity_map(struct dm_target *ti, struct bio *bio)
 	io->block = bio->bi_iter.bi_sector >> (v->data_dev_block_bits - SECTOR_SHIFT);
 	io->n_blocks = bio->bi_iter.bi_size >> v->data_dev_block_bits;
 
-	bio->bi_end_io = verity_end_io;
+	bio->bi_end_io = (void *)verity_end_io;
+	// avoid warnings
 	bio->bi_private = io;
 	io->iter = bio->bi_iter;
 

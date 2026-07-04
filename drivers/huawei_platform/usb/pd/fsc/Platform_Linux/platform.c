@@ -598,7 +598,7 @@ FSC_BOOL platform_check_timer(TIMER *timer)
     return (((FSC_U16)(get_system_time() - timer->start_time) > timer->timeout) ? TRUE: FALSE);
 }
 
-FSC_U16 platform_get_system_time()
+FSC_U16 platform_get_system_time(void)
 {
     return get_system_time();
 }

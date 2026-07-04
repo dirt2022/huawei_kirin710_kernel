@@ -910,7 +910,13 @@ void SetApds9308AlsExtendPrameters(void)
 	if ((g_apds9308Para[paraTable].apds9308_para) > SENSOR_PLATFORM_EXTEND_ALS_DATA_SIZE) {
 		len = SENSOR_PLATFORM_EXTEND_ALS_DATA_SIZE;
 	} else {
-		len = g_apds9308Para[paraTable].apds9308_para;
+		// len = g_apds9308Para[paraTable].apds9308_para;
+
+		// I don't think the code is reachable.
+		// apds9308_para is an array (short[]), starting with 0xffffffff
+		// so the if() will always be true.
+		// this is the old compiler behaviour.
+		len = (unsigned int)g_apds9308Para[paraTable].apds9308_para;
 	}
 	memcpy(als_data.als_extend_data, g_apds9308Para[paraTable].apds9308_para, len);
 	minThreshold_als_para = g_apds9308Para[paraTable].apds9308_para[APDS9308_MIN_THD_NUM];

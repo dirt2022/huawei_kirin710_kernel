@@ -54,7 +54,7 @@ static bool huawei_dock_svid_exist = false;
 int AutoModeEntryObjPos;
 #endif // FSC_HAVE_DP
 
-Identity vdmRequestIdentityInfo() {
+Identity vdmRequestIdentityInfo(void) {
     Identity id = {0};
 
     if(Responds_To_Discov_SOP) {
@@ -95,7 +95,7 @@ Identity vdmRequestIdentityInfo() {
     return id;
 }
 
-SvidInfo vdmRequestSvidInfo() {
+SvidInfo vdmRequestSvidInfo(void) {
     SvidInfo svid_info = {0};
 
     if (Responds_To_Discov_SOP && svid_enable && platform_get_modal_operation_supported() && platform_discover_svid_supported()) {
@@ -234,7 +234,7 @@ void vdmInformAttention(FSC_U16 svid, FSC_U8 mode_index) {
 
 }
 
-void vdmInitDpm() {
+void vdmInitDpm(void) {
 
     svid_enable = TRUE;
     mode_enable = TRUE;

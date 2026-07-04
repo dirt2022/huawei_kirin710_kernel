@@ -1149,8 +1149,9 @@ static int hisp120_power_on(hisp_intf_t *i)
 
     /*assign a new, unique, local address and associate instance with it */
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(4,9,0))
-    hisi_serv->ept = rpmsg_create_ept(hisi_serv->rpdev, hisp120_rpmsg_ept_cb, hisi_serv,
-              chinfo);
+    hisi_serv->ept = rpmsg_create_ept(hisi_serv->rpdev,
+        (int (*)(struct rpmsg_device *, void *, int, void *, unsigned int))hisp120_rpmsg_ept_cb, hisi_serv,
+        chinfo);
 #else
     hisi_serv->ept =
         rpmsg_create_ept(hisi_serv->rpdev, hisp120_rpmsg_ept_cb, hisi_serv,
@@ -1666,7 +1667,7 @@ static struct rpmsg_driver rpmsg_hisp120_driver = {
     .drv.owner  = THIS_MODULE, //lint !e64 !e485
     .id_table = rpmsg_hisp120_id_table,
     .probe = hisp120_rpmsg_probe,
-    .callback = hisp120_rpmsg_driver_cb,
+    .callback = (void *)hisp120_rpmsg_driver_cb,
     .remove = hisp120_rpmsg_remove,
 };
 

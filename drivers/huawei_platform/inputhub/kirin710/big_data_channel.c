@@ -187,10 +187,11 @@ static int iomcu_big_data_process(const pkt_header_t *head)
 	return 0;
 }
 
-static void iomcu_big_data_init(void)
+static int iomcu_big_data_init(void)
 {
 	register_mcu_event_notifier(TAG_BIG_DATA, CMD_BIG_DATA_SEND_TO_AP_RESP, iomcu_big_data_process);
 	hwlog_info("iomcu_big_data_init success\n");
+	return 0;
 }
 
 late_initcall_sync(iomcu_big_data_init);

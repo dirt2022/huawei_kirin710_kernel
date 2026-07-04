@@ -14508,7 +14508,7 @@ static const struct file_operations wifitem_seq_fops = {
 
 #if defined WL_TEM_CTRL || defined WL_TIM_EVENT
 struct proc_dir_entry *wifi_dir = NULL;
-int wifi_init_proc()
+int wifi_init_proc(void)
 {
     wifi_dir = proc_mkdir("wifi", NULL);
     if (!wifi_dir) {
@@ -14539,7 +14539,7 @@ int wifi_init_proc()
     return 0;
 }
 
-void wifi_exit_proc()
+void wifi_exit_proc(void)
 {
 	WL_DBG(("wifi_exit_proc ok\n"));
 	if (wifi_dir) {
@@ -23411,7 +23411,7 @@ bool wl_cfg80211_is_concurrent_mode(void)
 	}
 }
 #endif /* BRCM_RSDB */
-void* wl_cfg80211_get_dhdp()
+void* wl_cfg80211_get_dhdp(void)
 {
 	struct bcm_cfg80211 *cfg = g_bcm_cfg;
 

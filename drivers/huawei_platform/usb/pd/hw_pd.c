@@ -459,7 +459,7 @@ void pd_dpm_send_event(enum pd_dpm_cable_event_type event)
 	}
 }
 
-bool pd_dpm_get_high_power_charging_status()
+bool pd_dpm_get_high_power_charging_status(void)
 {
 	hwlog_info("%s status =%d\n", __func__, g_pd_high_power_charging_status);
 	return g_pd_high_power_charging_status;
@@ -470,7 +470,7 @@ void pd_dpm_set_high_power_charging_status(bool status)
 	g_pd_high_power_charging_status = status;
 }
 
-bool pd_dpm_get_high_voltage_charging_status()
+bool pd_dpm_get_high_voltage_charging_status(void)
 {
 	hwlog_info("%s status =%d\n", __func__, g_pd_high_voltage_charging_status);
 	return g_pd_high_voltage_charging_status;
@@ -481,7 +481,7 @@ void pd_dpm_set_high_voltage_charging_status(bool status)
 	g_pd_high_voltage_charging_status = status;
 }
 
-bool pd_dpm_get_optional_max_power_status()
+bool pd_dpm_get_optional_max_power_status(void)
 {
 	hwlog_info("%s status =%d\n", __func__, g_pd_optional_max_power_status);
 	return g_pd_optional_max_power_status;
